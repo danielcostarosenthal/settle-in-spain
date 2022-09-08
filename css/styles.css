@@ -22,7 +22,7 @@
 	--main-color-accent: hsla(225, 15%, 50%, 0.95);
 	--modal-background: hsl(225, 35%, 10%, 0.95);
 	--modal-text: hsl(45, 55%, 53%);
-	--border-radius: 5px;
+	--border-radius: .35rem;
 	--header-height: 2rem;
 }
 
@@ -398,7 +398,7 @@ header {
 	height: max-content;
 	z-index: 1;
 	top: -1.2rem;
-	transform: translateX(100%);
+	transform: translateX(100vw);
 }
 
 /* Styling the links */
@@ -500,7 +500,7 @@ header {
 		min-width: max-content;
 		z-index: 1;
 		left: 0;
-		transform: translateX(0%);
+		transform: translateX(0);
 		transform: translateY(2.75rem);
 		text-align: left;
 	}
@@ -585,8 +585,21 @@ img {
 	object-position: center;
 }
 
-.section-accent-flex > div {
+input[type="button"],
+input[type="text"],
+select#userservice,
+textarea#usermessage,
+button[type="submit"],
+.section-accent-flex > div, 
+.iframe > iframe,
+.modal-contact {
 	border-radius: var(--border-radius);
+}
+
+.dropdown-menu > .dropdown-item,
+.dropdown-content {
+	border-radius: calc(var(--border-radius)/4*2);
+	/* border-radius: var(--border-radius); */
 }
 
 .section-accent-flex > div > div > img{
@@ -649,11 +662,11 @@ img:hover {
 }
 
 .fly-in {
-	transform: translateX(-400%);
+	transform: translateX(-100vw);
 }
 
 .fly-in-from-left {
-	transform: translateX(-400%);
+	transform: translateX(-100vw);
 	animation: fly-in-from-left 2s forwards;
 	text-align: center;
 }
@@ -664,7 +677,7 @@ p.fly-in-from-left {
 
 @keyframes fly-in-from-left {
 	0% {
-		transform: translateX(-400%);
+		transform: translateX(-100vw);
 	}
 
 	50% {
@@ -672,7 +685,7 @@ p.fly-in-from-left {
 	}
 
 	100% {
-		transform: translateX(0%);
+		transform: translateX(0);
 	}
 }
 /*  Relative position for the up-link button */
@@ -917,7 +930,7 @@ p.fly-in-from-left {
 	right: 0.5rem;
 	z-index: 2;
 	opacity: 0;
-	transform: translateX(200%);
+	transform: translateX(100vw);
 	transition: all 2s ease-in-out;
 	display: none;
 }
