@@ -586,10 +586,8 @@ img {
 }
 
 input[type="button"],
-input[type="text"],
-select#userservice,
-textarea#usermessage,
 button[type="submit"],
+.modal-text,
 .section-accent-flex > div, 
 .iframe > iframe,
 .modal-contact {
@@ -597,8 +595,14 @@ button[type="submit"],
 }
 
 .dropdown-menu > .dropdown-item,
-.dropdown-content {
-	border-radius: calc(var(--border-radius)/4*2);
+.dropdown-content,
+.modal-text p,
+input[type="email"],
+input[type="text"],
+select#userservice,
+textarea#usermessage,
+button.modal-text-btn {
+	border-radius: calc(var(--border-radius)/4*2.5);
 	/* border-radius: var(--border-radius); */
 }
 
