@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<link rel="shortcut icon" href="img/icon/icon_1.ico" type="image/x-icon" />
+		<link rel="stylesheet" href="css/reply.css" />
+		<link rel="stylesheet" href="css/styles.css" />
+		<script src="scripts/reply.js" defer></script>
+		<title>Email received</title>
+	</head>
+
+	<body>
+		<noscript>
+			<h1>Your browser does not support JavaScript!</h1>
+			<p>For a full experience, we recommend that JavaScript be enabled.</p>
+			<span>Thank you!</span>
+		</noscript>
+		<div id="overlay"></div>
+		<div class="container">
+			<h2 class="title">Thank you for contacting with us.</h2>
+			<p class="text">We'll get back to you in the next 24H.</p>
+			<p class="link"><a onclick="goBackToHome()" href="javascript:setTimeout(()=>{window.location = 'index.html' },1000);">Go to HOME PAGE</a></p>
+		</div>
+		<footer id="about" class="footer">
+			<div>
+				<div class="header-flex">
+					<div class="header-address">
+						<div class="header-address-text">
+							<p>Barcelona & Madrid, SPAIN</p>
+							<span></span>
+						</div>
+					</div>
+					<div class="header-phone-flex">
+						<div class="header-phone">
+							<p id="date"></p>
+							<span></span>
+							<p id="time"></p>
+						</div>
+					</div>
+				</div>
+				<div class="header-phone-flex">
+					<div class="header-phone">
+						<!-- <p>+34 </p>
+						<span></span> -->
+						<p>9AM - 6PM</p>
+						<!-- <span></span> -->
+					</div>
+				</div>
+				<!-- <div class="header-phone-input">
+					<input class="reply-page-button" type="button" value="Contact us" />
+				</div> -->
+				<a href="#home"><img class="footer-icon" src="img/logo/logo_6.png" alt="Logo" /></a>
+				<div class="header-address">
+					<div class="header-address-text">
+						<p>&copy; 2021</p>
+						<p>Settle In Spain, SL</p>
+					</div>
+				</div>
+				<div class="header-address">
+					<div class="header-address-text footer-author">
+						<p>
+							Website designed and created by
+							<a href="javascript:void(0);">DCiM</a>
+						</p>
+					</div>
+				</div>
+			</div>
+			<div class="iframe">
+				<iframe
+					src="https://www.google.com/maps/embed?pb=!1m10!1m8!1m3!1d9685.811907789564!2d2.173911426800742!3d41.40319189423075!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sen!2ses!4v1624209184811!5m2!1sen!2ses"
+					allowfullscreen=""
+					loading="lazy"
+				></iframe>
+			</div>
+		</footer>
+	</body>
+</html>

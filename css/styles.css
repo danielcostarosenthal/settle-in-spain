@@ -1,0 +1,1868 @@
+@charset "UTF-8";
+
+/* GENERAL RESETS */
+*,
+*::before,
+*::after {
+	box-sizing: border-box;
+	margin: 0;
+	padding: 0;
+	font-family: 'Mate SC', serif;
+	/* font-family: Bahnschrift, sans-serif; */
+	font-family: 'Dosis', sans-serif;
+	font-weight: 500;
+}
+
+:root {
+	--color-header: hsl(225, 35%, 10%);
+	--color-error: hsl(350, 100%, 40%);
+	--color-header-accent: hsl(225, 15%, 50%);
+	--color-header-text: hsl(0, 0%, 95%);
+	--main-color: hsla(0, 0%, 85%, 0.95);
+	--main-color-accent: hsla(225, 15%, 50%, 0.95);
+	--modal-background: hsl(225, 35%, 10%, 0.95);
+	--modal-text: hsl(45, 55%, 53%);
+	--border-radius: 0;
+	--header-height: 2rem;
+}
+
+html {
+	scroll-behavior: smooth;
+}
+
+/* Hide the scrollbar in the browser */
+body::-webkit-scrollbar {
+	display: none;
+}
+
+body {
+	line-height: 1.4;
+	background-attachment: fixed;
+	background-size: cover;
+	background-color: var(--color-header-accent);
+	background-image: linear-gradient(to bottom, hsla(0, 0%, 10%, 1), hsla(0, 0%, 10%, 0)), url(../img/background/background_mobile.jpg);
+	background-position-y: 50%;
+	user-select: none;
+	font-family: 'Mate SC', serif;
+}
+
+/* STYLING THE HEADER */
+header {
+	background-color: var(--color-header);
+	font-weight: 100;
+	position: relative;
+	min-height: 20vh;
+	height: auto;
+}
+
+.header-icon {
+	object-fit: contain;
+	position: absolute;
+	left: 1rem;
+	top: 1rem;
+	width: 50px;
+	height: auto;
+	z-index: 1;
+	transition: all 250ms ease;
+}
+
+.header-icon:hover {
+	filter: saturate(125%);
+}
+
+.header-flex {
+	font-size: 0.85rem;
+	width: 100%;
+	margin: 0 auto;
+	color: var(--color-header-text);
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+}
+
+.header-flex i {
+	color: var(--color-header-accent);
+	padding-right: 0.5rem;
+}
+
+/* STYLING THE ADDRESS */
+.header-address {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+}
+
+.header-address p {
+	margin-bottom: 0;
+}
+
+.header-address > p {
+	padding-top: 0.25rem;
+}
+
+.header-address p::before {
+	content: '\00A0';
+}
+
+.header-address-text {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	padding: 0.75rem 0;
+}
+
+/* STYLING THE PHONE AND THE SCHEDULE */
+.header-phone-flex {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+}
+
+.header-phone {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.header-phone a {
+	color: inherit;
+	text-decoration: none;
+	/* font-weight: 100; */
+}
+
+.header-phone a:hover,
+.header-phone a:focus {
+	outline: none;
+}
+
+.header-address span::before {
+	display: none;
+}
+
+.header-address span::before,
+.header-phone span::before {
+	content: '|';
+	margin: 0 0.5rem;
+	font-size: 0.9rem;
+	color: hsl(0, 0%, 50%, 0.5);
+}
+
+/* STYLING THE CONSULTATION BUTTON */
+.header-phone-input {
+	padding-top: 1rem;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	flex-direction: column;
+}
+
+.header-phone-input input {
+	border: 0;
+	background-color: transparent;
+	font-size: 0.75rem;
+	font-family: inherit;
+	color: var(--modal-text);
+	border: 2px solid var(--color-header-accent);
+	padding: 0.25rem 0.5rem;
+	transition: all 250ms;
+	background-color: var(--color-header);
+	text-transform: uppercase;
+	/* display: none; */
+	text-align: center;
+}
+
+.header-phone-input input:hover,
+.header-phone-input input:focus {
+	cursor: pointer;
+	background-color: transparent;
+	outline: none;
+	opacity: 0.95;
+}
+
+/* MEDIA QUERIES ABOVE 425px */
+@media (min-width: 425px) {
+	.header-address {
+		flex-direction: row;
+	}
+
+	.header-address p {
+		padding-top: 0;
+	}
+}
+
+/* MEDIA QUERIES ABOVE 610px */
+@media (min-width: 610px) {
+	.header-phone-input input {
+		display: block;
+	}
+}
+
+/* MEDIA QUERIES ABOVE 800px */
+@media (min-width: 800px) {
+	header {
+		align-items: center;
+		margin-top: 0px;
+	}
+
+	.header-icon {
+		position: absolute;
+		left: 1rem;
+		top: 50%;
+		width: 65px;
+		height: auto;
+		transform: translate(0%, -65%);
+	}
+
+	.header-flex {
+		flex-direction: row;
+		align-items: center;
+		justify-content: center;
+	}
+
+	.header-phone-input {
+		padding: 0.5rem;
+	}
+
+	.header-address span::before {
+		display: block;
+	}
+}
+
+/* MEDIA QUERIES ABOVE 1000px */
+
+@media (min-width: 1000px) {
+	.header-phone {
+		margin-bottom: 0;
+	}
+
+	.header-phone-input input {
+		font-size: 0.9rem;
+	}
+
+	.header-nav {
+		align-items: center;
+		/* justify-content: space-between; */
+		padding: 1rem;
+	}
+
+	.hamburger {
+		display: none;
+	}
+
+	.header-nav img {
+		display: block;
+		margin-left: 1rem;
+	}
+
+	.header-icon {
+		width: 90px;
+	}
+}
+
+/* Styling the dropdown menu */
+.menu-container {
+	width: 100%;
+	padding: 0.25rem 0;
+	background-color: var(--color-header);
+	font-family: inherit;
+	transition: all 150ms ease-in-out;
+	text-align: center;
+	height: auto;
+	position: relative;
+}
+
+.menu-sticky-mobile {
+	position: fixed;
+	z-index: 2;
+	top: 0;
+	text-align: left;
+	display: block;
+	justify-content: space-between;
+}
+
+.menu-sticky {
+	position: fixed;
+	z-index: 2;
+	top: 0;
+	text-align: left;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.header-phone-sticky {
+	display: none;
+}
+
+.header-phone-sticky-active {
+	display: none;
+	align-items: center;
+	justify-content: space-between;
+}
+
+.header-phone-sticky > * {
+	color: white;
+	text-decoration: none;
+}
+
+.header-phone-sticky a {
+	margin-right: 1rem;
+	font-size: 0.75rem;
+}
+
+.header-phone-sticky p {
+	margin-right: 1.2rem;
+	font-size: 0.75rem;
+}
+
+.menu-links {
+	padding: 0.5rem;
+	display: none;
+	pointer-events: none;
+	margin-left: 1rem;
+	height: auto;
+}
+
+.menu-links-active {
+	display: flex;
+	flex-direction: column;
+	align-items: flex-start;
+	pointer-events: initial;
+	height: auto;
+	position: fixed;
+	top: auto;
+	right: 0;
+	left: -1rem;
+	z-index: 3;
+	background-color: var(--color-header);
+}
+
+.dropdown-menu {
+	position: relative;
+	display: inline-block;
+	width: max-content;
+	background-color: var(--color-header);
+	padding: 0.5rem 0;
+}
+
+/* When we hover over the dropdown menu we change the background color of the content links */
+.dropdown-menu:hover .dropdown-item {
+	/* background-color: hsl(200, 70%, 50%); */
+	color: hsl(0, 0%, 90%);
+}
+
+/* Styl.ing the button/main menu/link */
+.dropdown-item {
+	background-color: var(--color-header);
+	color: white;
+	padding: 0.5rem 0.75rem;
+	font-size: 0.75rem;
+	border: none;
+	cursor: pointer;
+	transition: all 200ms ease-in-out;
+	width: max-content;
+	margin-bottom: 0.5rem;
+	text-transform: uppercase;
+	text-decoration: none;
+}
+
+.dropdown-item:hover {
+	background-color: var(--color-header-accent);
+}
+
+.dropdown-item-active {
+	background-color: var(--color-header-accent);
+	outline: 2px solid var(--color-header);
+	transition: all 200ms ease-in-out;
+}
+
+.dropdown-item-active:hover {
+	background-color: transparent;
+	outline: 2px solid var(--color-header-accent);
+}
+
+/* Removing the margin-bottom to the last element */
+.dropdown-menu:nth-of-type(10) .dropdown-item {
+	margin-bottom: 0;
+}
+
+/* Styling the links container */
+.dropdown-content {
+	display: none;
+	position: absolute;
+	background-color: hsl(0, 0%, 90%);
+	min-width: max-content;
+	height: max-content;
+	z-index: 1;
+	top: -1.2rem;
+	transform: translateX(100%);
+}
+
+/* Styling the links */
+.dropdown-content a {
+	color: black;
+	padding: 0.25rem 0.75rem;
+	text-decoration: none;
+	display: block;
+	transition: all 200ms ease-in-out;
+	font-weight: 100;
+	font-size: 0.75rem;
+}
+
+/* On hovering over the links, change some properties*/
+.dropdown-content a:hover {
+	background-color: var(--color-header-accent);
+	color: white;
+}
+
+.dropdown-content a:hover .dropdown-item {
+	background-color: var(--color-header-accent);
+}
+
+/* Styling the burger menu */
+.burger {
+	cursor: pointer;
+	padding: 1rem;
+	width: max-content;
+	height: auto;
+}
+
+.burger-sticky {
+	position: fixed;
+	top: 0;
+	left: 0;
+	background-color: var(--color-header);
+	width: 100%;
+	z-index: 1;
+	height: auto;
+}
+
+.burger div {
+	width: 2em;
+	height: 0.1em;
+	background-color: hsl(0, 0%, 90%);
+	margin-bottom: 0.35em;
+	transition: background-color 250ms ease-in-out;
+}
+
+.burger:hover > * {
+	background-color: white;
+}
+
+.burger > :last-child {
+	margin-bottom: 0;
+}
+
+/* Media Queries */
+@media (min-width: 800px) {
+	.menu-container {
+		padding: 0;
+	}
+
+	/* When we hover over the dropdown menu we display the content below */
+	.dropdown-menu:hover .dropdown-content {
+		display: block;
+		margin-top: 0.5rem;
+	}
+
+	.dropdown-content a {
+		margin: 0.5rem 0;
+	}
+
+	.dropdown-content a:first-of-type {
+		margin-top: 0;
+	}
+
+	.dropdown-content a:last-of-type {
+		margin-bottom: 0;
+	}
+
+	.menu-links {
+		flex-direction: row;
+		display: block;
+		height: auto;
+		pointer-events: initial;
+		margin-left: 0;
+	}
+
+	.menu-sticky-mobile,
+	.header-phone-sticky-active {
+		display: flex;
+	}
+
+	.dropdown-content {
+		display: none;
+		position: absolute;
+		background-color: hsl(0, 0%, 90%);
+		min-width: max-content;
+		z-index: 1;
+		left: 0;
+		transform: translateX(0%);
+		transform: translateY(2.75rem);
+		text-align: left;
+	}
+
+	.dropdown-item {
+		margin-bottom: 0;
+	}
+
+	.dropdown-item,
+	.dropdown-content a {
+		padding: 0.25rem 0.29rem;
+	}
+
+	.burger {
+		display: none;
+	}
+}
+
+@media (min-width: 900px) {
+	.dropdown-item,
+	.dropdown-content a {
+		padding: 0.25rem 0.5rem;
+	}
+}
+
+@media (min-width: 1000px) {
+	.dropdown-item,
+	.dropdown-content a,
+	.header-phone-sticky a,
+	.header-phone-sticky p {
+		font-size: 0.9rem;
+	}
+
+	.dropdown-item,
+	.dropdown-content a {
+		padding: 0.25rem 0.5rem;
+	}
+
+	.dropdown-content {
+		padding: 0;
+	}
+
+	.dropdown-menu:hover .dropdown-content {
+		display: block;
+		margin-top: 0.575rem;
+	}
+}
+
+@media (min-width: 1200px) {
+	.dropdown-item,
+	.dropdown-content a,
+	.header-phone-sticky a,
+	.header-phone-sticky p,
+	.header-phone-input input,
+	.header-flex {
+		font-size: 1.1rem;
+	}
+
+	.dropdown-item,
+	.dropdown-content a,
+	.header-phone-input input {
+		padding: 0.25rem 0.625rem;
+	}
+
+	.dropdown-menu:hover .dropdown-content {
+		display: block;
+		margin-top: 0.725rem;
+	}
+}
+
+@media (min-width: 1300px) {
+	.dropdown-item,
+	.dropdown-content a {
+		padding: 0.25rem 0.75rem;
+	}
+}
+
+img {
+	filter: saturate(125%) brightness(110%);
+	border-radius: var(--border-radius);
+	object-fit: cover;
+	object-position: center;
+}
+
+img:hover {
+	cursor: pointer;
+}
+
+/* General settings for the sections */
+.section,
+.section-accent,
+.section-legal-services {
+	width: 100%;
+	margin: 0 auto;
+	/* min-height: 100vh; */
+	padding: 0.5rem;
+	background-repeat: no-repeat;
+	background-size: cover;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+}
+
+.section h2,
+.section-accent h2,
+.section-legal-services h2 {
+	font-family: 'Mate SC', serif;
+	font-family: 'Do Hyeon', sans-serif;
+}
+
+.section h3,
+.section-accent h3,
+.section-legal-services h3 {
+	font-family: 'Mate SC', serif;
+	font-family: 'Do Hyeon', sans-serif;
+}
+
+/* Animations and their classes for headings, paragraphs and sections */
+.faded {
+	opacity: 1;
+}
+
+.fade-in-first-sections {
+	opacity: 1;
+	animation: fade-in 1.25s 0.5s forwards;
+}
+
+.fade-in {
+	opacity: 1;
+	animation: fade-in 0.65s forwards;
+}
+
+@keyframes fade-in {
+	to {
+		opacity: 1;
+	}
+}
+
+.fly-in {
+	transform: translateX(-400%);
+}
+
+.fly-in-from-left {
+	transform: translateX(-400%);
+	animation: fly-in-from-left 2s forwards;
+	text-align: center;
+}
+
+p.fly-in-from-left {
+	animation: fly-in-from-left 2s 0.5s forwards;
+}
+
+@keyframes fly-in-from-left {
+	0% {
+		transform: translateX(-400%);
+	}
+
+	50% {
+		transform: translateX(5%);
+	}
+
+	100% {
+		transform: translateX(0%);
+	}
+}
+/*  Relative position for the up-link button */
+.section,
+.section-legal-services,
+.section-accent {
+	position: relative;
+}
+
+/* Other settings for the regular section */
+.section,
+.section-legal-services {
+	background-color: var(--main-color);
+	color: hsl(0, 0%, 10%);
+	/* background-image: linear-gradient(to bottom, hsla(0, 0%, 10%, 1), hsla(0, 0%, 10%, 0)); */
+}
+
+/* .section-immigration {
+	background-color: var(--color-header-accent);
+	color: white;
+	background-image: linear-gradient(to bottom, hsla(0, 0%, 10%, 0.5), hsla(0, 0%, 10%, 0)), url(../img/accounting.jpg);
+} */
+
+/* Other settings for the accent section */
+.section-accent {
+	background-color: rgba(113, 128, 160, 0);
+	color: white;
+	/* background-image: linear-gradient(to bottom, hsla(0, 0%, 10%, 1), hsla(0, 0%, 10%, 0)), url(https://source.unsplash.com/random); */
+}
+
+/* General settings for the section containers */
+.section-container,
+.section-accent-container {
+	width: 100%;
+	/* background-color: var(--main-color); */
+}
+
+/* General settings for the section headers and its elements*/
+.section-header,
+.section-accent-header {
+	margin: 1.5rem 0;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	text-align: center;
+}
+
+/* .section-header h2,
+.section-accent-header h2 {
+	scroll-snap-align: start;
+	padding-block-start: 12rem;
+} */
+
+.section-header {
+	margin: 1rem 0;
+}
+
+.section-header-one {
+	margin: 2rem 0 0 0;
+}
+
+.section h2:first-child {
+	font-size: 2rem;
+	font-weight: bold;
+	padding: 0;
+	vertical-align: text-bottom;
+}
+
+.section-accent h2:first-child {
+	font-size: 2rem;
+	font-weight: bold;
+}
+
+.section-header p,
+.section-accent-header p {
+	font-size: 1.1rem;
+	text-align: center;
+}
+
+/*  General settings for the section flex containers*/
+.section-flex,
+.section-accent-flex {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+}
+
+/* General settings for the images inside the sections */
+.section-content img,
+.section-accent-content img {
+	width: 100%;
+	max-width: 600px;
+	height: auto;
+	object-fit: cover;
+	transition: all 200ms ease-in-out;
+}
+
+.section-content img:hover,
+.section-accent-content img:hover {
+	/* transform: translateY(-0.5rem);
+	box-shadow: 0 0 0.25rem 0 hsl(0, 0%, 75%); */
+	opacity: 1;
+}
+
+/* General settings for the section contents and their elements */
+.section-content,
+.section-accent-content {
+	display: flex;
+	flex-direction: column;
+	flex-wrap: wrap;
+	align-items: center;
+	justify-content: space-between;
+	color: hsla(0, 0%, 10%);
+	margin: 0.5rem 0;
+	width: 100%;
+	max-width: 600px;
+	height: auto;
+	transition: all 250ms ease-in-out;
+}
+
+.section-content img:hover,
+.section-accent-content img:hover {
+	transform: translateY(-0.25rem);
+}
+
+.section-accent-content {
+	background-color: var(--main-color);
+}
+
+/* Specific settings for the section contents due to their different backgrounds */
+.section-content {
+	margin: 1rem 0;
+}
+
+.section-accent-content {
+	padding-bottom: 1rem;
+	/* background-color: transparent; */
+}
+
+/* General settings for the h3 in the sections */
+.section-content h3,
+.section-accent-content h3,
+.section-legal-services h3 {
+	font-weight: bold;
+	margin-top: 0.5rem;
+	padding: 1rem 1rem 1rem 0;
+	align-self: flex-start;
+	justify-self: flex-start;
+	text-transform: uppercase;
+}
+
+.section-legal-services h3.fly-in-from-left {
+	margin-top: 0;
+	/* margin-top: 0.5rem; */
+	padding: 0;
+	/* padding: 1rem 1rem 1rem 0; */
+}
+
+@media (min-width: 800px) {
+	.section-legal-services h3.fly-in-from-left {
+		/* margin-top: 0; */
+		margin-top: 0.5rem;
+		/* padding: 0; */
+		padding: 0 1rem 0 0;
+		margin: 0.25rem;
+		font-size: 2.5rem;
+	}
+}
+
+.section-accent-content h3 {
+	padding: 1rem;
+}
+
+/* General settings for the paragraphs in the sections */
+.section-content p {
+	padding: 1rem 1rem 1rem 0;
+	font-size: 1rem;
+	text-align: left;
+}
+
+.section-accent-content p {
+	padding: 1rem;
+	font-size: 1rem;
+	text-align: left;
+}
+
+/* General settings for the links inside the section headers */
+.section button,
+.section-accent button,
+.section-legal-services button,
+.section a,
+.section-accent a,
+.section-legal-services a {
+	align-self: flex-start;
+	color: hsl(0, 0%, 20%);
+	border: none;
+	border-left: 3px solid var(--color-header-accent);
+	padding-left: 0.25rem;
+	cursor: pointer;
+	outline: none;
+	background: transparent;
+	font-size: inherit;
+	text-decoration: underline;
+}
+
+.section-accent-content a,
+.section-accent-content button {
+	margin-left: 1rem;
+}
+
+.section-header a,
+.section-accent-header a {
+	border: 1px solid transparent;
+	margin-bottom: 1rem;
+	position: relative;
+}
+
+.section-header a:focus,
+.section-accent-header a:focus {
+	outline: none;
+}
+
+.section-header a:focus > img,
+.section-accent-header a:focus > img {
+	background-color: hsla(0, 0%, 90%, 0.5);
+}
+
+/* Styling the contact button */
+.contact button {
+	background-color: hsl(210, 50%, 30%);
+	border: none;
+	color: white;
+	font-weight: 100;
+	padding: 0.35rem 1.5rem;
+	font-size: 1rem;
+	text-align: center;
+	border: 0.125rem solid hsl(0, 0%, 20%);
+	width: auto;
+	position: fixed;
+	top: 0.75rem;
+	right: 0.5rem;
+	z-index: 2;
+	opacity: 0;
+	transform: translateX(200%);
+	transition: all 2s ease-in-out;
+	display: none;
+}
+
+.contact button:hover {
+	cursor: pointer;
+	background-color: hsl(210, 50%, 40%);
+	border: 0.125rem solid transparent;
+}
+
+/* Styling the whatsapp button */
+.contact img,
+.contact-whatsapp img {
+	background-image: radial-gradient(circle, hsla(0, 0%, 85%, 0.95) 40%, hsla(225, 15%, 50%, 0.95));
+	width: 25px;
+	position: fixed;
+	right: 0.5rem;
+	border-radius: 50%;
+	z-index: 2;
+	opacity: 0;
+	top: 5rem;
+	/* top: 50%; */
+	opacity: 0;
+	transition: all 1s ease-in-out;
+	visibility: hidden;
+}
+
+.contact-whatsapp {
+	display: none;
+}
+
+.contact img {
+	/* right: 2.5rem; */
+	right: 0.5rem;
+}
+
+.contact img:hover,
+.contact-whatsapp img:hover {
+	background-color: hsla(0, 0%, 90%, 0.75);
+}
+
+/* Styling the modal-contact */
+form #logo {
+	display: none;
+}
+
+.modal-contact-background {
+	background-color: var(--modal-background);
+	width: 100%;
+	height: 100vh;
+	position: fixed;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	visibility: hidden;
+	opacity: 0;
+	transition: visibility 0s, opacity 500ms ease-in-out;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+/* Creating the active class for the modal-contact */
+.modal-contact-background-active {
+	visibility: visible;
+	opacity: 1;
+	z-index: 3;
+}
+
+/* Class to stop the scrolling on the body */
+.stop-scrolling {
+	overflow: hidden;
+}
+
+/* Styling the modal-contact and its elements */
+.modal-contact {
+	width: 90%;
+	max-width: 550px;
+	background-color: var(--main-color);
+	color: var(--color-header-text);
+	position: relative;
+	padding: 1rem;
+}
+
+/* Styling the modal-contact title */
+.modal-contact h2 {
+	margin: 1rem 0;
+	font-size: 2rem;
+	font-weight: bold;
+	text-transform: capitalize;
+	text-align: center;
+	color: var(--color-header);
+}
+
+/* Styling the labels/inputs containers */
+.modal-contact div {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+
+/* Styling the modal-contact labels */
+.modal-contact label {
+	font-weight: bold;
+	width: 95%;
+	max-width: 400px;
+	margin: 0 auto;
+	margin-top: 0.5rem;
+	margin-bottom: 0.125rem;
+	color: var(--color-header);
+	transition: opacity 250ms ease-in-out;
+}
+
+.modal-contact label:hover ~ input,
+.modal-contact label:hover ~ textarea,
+.modal-contact input:hover,
+.modal-contact textarea:hover {
+	background-color: var(--color-header);
+	opacity: 0.95;
+}
+
+/* Styling the modal-contact inputs */
+.modal-contact input,
+.modal-contact select,
+.modal-contact textarea {
+	width: 95%;
+	max-width: 400px;
+	margin: 0 auto;
+	border: none;
+	padding: 0.35rem;
+	background-color: var(--color-header);
+	color: white;
+	border: 0.125rem solid transparent;
+	transition: background-color 250ms ease-in-out;
+	font-size: 0.75rem;
+}
+
+.modal-contact select {
+	padding-left: 0.15rem;
+}
+
+::placeholder {
+	color: white;
+	font-size: 0.75rem;
+}
+
+.modal-contact input:focus,
+.modal-contact select:focus,
+.modal-contact textarea:focus {
+	outline: none;
+	background-color: var(--color-header);
+	border: 0.125rem solid var(--color-header-accent);
+}
+
+/* .modal-contact input:focus::placeholder,
+.modal-contact textarea:focus::placeholder {
+	color: transparent;
+} */
+
+.modal-contact textarea {
+	resize: none;
+	height: 4rem;
+}
+
+/* Styling the modal-contact's send button */
+.modal-contact button {
+	background-color: var(--color-header);
+	border: none;
+	color: white;
+	font-weight: 100;
+	margin-top: 1rem;
+	padding: 0.35rem 1.5rem;
+	width: 125px;
+	font-size: 1rem;
+	border: 0.125rem solid var(--color-header-accent);
+	text-transform: uppercase;
+	font-weight: bold;
+}
+
+.modal-contact button:hover {
+	cursor: pointer;
+	background-color: var(--color-header);
+	border: 0.125rem solid transparent;
+	opacity: 0.95;
+}
+
+/* Styling the modal-contact's close button */
+.modal-contact img {
+	border-radius: 50%;
+	width: 25px;
+	position: absolute;
+	top: 0.5rem;
+	right: 0.5rem;
+	filter: opacity(0.75);
+}
+
+.modal-contact img:hover {
+	filter: opacity(1);
+}
+
+/* Hiding the initial checkbox */
+.checkbox {
+	position: absolute;
+	left: -9999px;
+	opacity: 0;
+}
+
+/* Aligninig the checkbox and its label */
+.checkbox + label {
+	display: flex;
+	align-items: center;
+	font-size: 0.75rem;
+}
+
+/* Creating the checkbox as a ::before element */
+.checkbox + label::before {
+	content: '';
+	height: 1.25em;
+	width: 1.25em;
+	display: block;
+	margin-right: 0.5em;
+	border: 1px solid var(--color-header);
+}
+
+/* Styling the hover state for the checkbox */
+.checkbox + label:hover::before {
+	background-color: var(--color-header-accent);
+}
+
+/* Styling the focus state for the checkbox */
+.checkbox:focus + label::before {
+	box-shadow: 0 0 10px 0 var(--color-header);
+}
+
+/* Styling the checked state for the checkbox */
+.checkbox:checked + label::before {
+	content: '\2714';
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	background-color: var(--color-header);
+	color: white;
+}
+
+/* Styling the disabled checkbox's label */
+.checkbox:disabled + label {
+	color: hsl(0, 0%, 60%);
+	cursor: not-allowed;
+}
+
+/* Styling the disabled checkbox */
+.checkbox:disabled + label::before {
+	background-color: hsl(0, 0%, 80%);
+	border-color: hsl(0, 0%, 60%);
+}
+
+/* Styling the go home button */
+.go-home img,
+.go-home-home img {
+	border-radius: 50%;
+	width: 25px;
+	position: absolute;
+	right: 0.5rem;
+	bottom: 1rem;
+	opacity: 0;
+	background-image: radial-gradient(circle, white, hsl(0, 0%, 100%, 0.25), transparent);
+	transform: translateY(200%);
+	transition: background-color 250ms ease-in-out, transform 1s ease-in-out;
+	z-index: 3;
+}
+
+.go-home img {
+	display: none;
+}
+
+.go-home-home img {
+	display: block;
+	position: fixed;
+}
+
+.go-home img:hover,
+.go-home-home img:hover {
+	background-color: hsla(0, 0%, 100%, 0.75);
+}
+
+.go-home a {
+	border: none;
+}
+
+img.fade-in-home-btn {
+	opacity: 1;
+	transform: translateY(0%);
+	transition: all 1s ease-in-out;
+}
+
+/* Media queries */
+@media (min-width: 450px) {
+	/* Styling the sections' headings */
+	.section h2:first-child {
+		font-size: 2.5rem;
+	}
+
+	.section-accent h2:first-child {
+		font-size: 2.5rem;
+	}
+}
+
+@media (min-width: 800px) {
+	/* Styling the sections and their elements */
+	.section {
+		padding-bottom: 0.5rem;
+	}
+
+	.section-content,
+	.section-accent-content {
+		margin: 0.25rem;
+		justify-self: end;
+	}
+
+	.section-accent-content {
+		padding-bottom: 1rem;
+	}
+
+	.section-header-one {
+		margin: 0;
+	}
+
+	.section-header,
+	.section-accent-header {
+		margin-left: 0rem;
+		align-items: flex-start;
+	}
+
+	.section-header p,
+	.section-accent-header p {
+		margin-left: 0.25rem;
+		text-align: left;
+	}
+
+	.section-flex,
+	.section-accent-flex {
+		display: flex;
+		flex-direction: row;
+		align-items: initial;
+	}
+
+	.section h2:first-child,
+	.section-accent h2:first-child {
+		font-size: 3.5rem;
+		font-weight: bold;
+		margin-left: 0.125rem;
+	}
+
+	/* Styling the modal-contact's close and whatsapp buttons */
+	.modal-contact img {
+		width: 35px;
+		position: absolute;
+		top: 0.75rem;
+		right: 0.75rem;
+		filter: opacity(0.75);
+	}
+
+	.contact img {
+		width: 35px;
+		/* right: 3.75rem; */
+		right: 0.75rem;
+	}
+
+	.contact-whatsapp img,
+	.go-home img {
+		width: 35px;
+		right: 0.75rem;
+	}
+
+	.fly-in-from-left {
+		text-align: left;
+	}
+}
+
+@media (min-width: 1024px) {
+	/* Styling the sections and their elements */
+	.section,
+	.section-accent {
+		min-height: 100vh;
+	}
+
+	.section-legal-services {
+		min-height: 80vh;
+	}
+
+	.section-container,
+	.section-accent-container {
+		width: 100%;
+		max-width: 1200px;
+		margin: 0 auto;
+	}
+
+	.section-header,
+	.section-accent-header {
+		margin-left: 0.75rem;
+	}
+
+	.section h2:first-child,
+	.section-accent h2:first-child {
+		font-size: 4.5rem;
+	}
+
+	.section-header a,
+	.section-accent-header a {
+		margin-right: 1rem;
+	}
+
+	.section-content,
+	.section-accent-content {
+		margin: 1rem;
+	}
+
+	.checkbox + label,
+	.modal-contact input,
+	.modal-contact select,
+	.modal-contact textarea {
+		font-size: 1rem;
+	}
+
+	.modal-contact textarea {
+		height: 6rem;
+	}
+
+	.contact img {
+		width: 50px;
+		/* right: 5rem; */
+		right: 1rem;
+	}
+
+	.contact-whatsapp img,
+	.go-home img {
+		width: 50px;
+		right: 1rem;
+	}
+
+	::placeholder {
+		color: white;
+		font-size: 1rem;
+	}
+}
+
+/* STYLING THE TEXT MODAL */
+/* Styling the modal-contact */
+.modal-text-background {
+	background-color: var(--modal-background);
+	width: 100%;
+	height: 100vh;
+	position: fixed;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	visibility: hidden;
+	opacity: 0;
+	transition: visibility 0s, opacity 500ms ease-in-out;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+/* Creating the active class for the modal-contact */
+.modal-text-background-active {
+	visibility: visible;
+	opacity: 1;
+	z-index: 3;
+}
+
+.modal-text {
+	display: flex;
+	flex-direction: column;
+	height: 70vh;
+	min-width: 300px;
+	width: 95%;
+	max-width: 800px;
+	background-color: hsl(0, 0%, 90%);
+	position: fixed;
+	left: 50%;
+	top: 50%;
+	transform: translate(-50%, -50%);
+}
+
+.modal-text-header {
+	padding: 0 1rem;
+	border-bottom: 0.1rem solid hsl(0, 0%, 30%);
+	padding-bottom: 0.5rem;
+	display: flex;
+	justify-content: space-between;
+}
+
+.modal-text-title {
+	font-size: 1.5rem;
+	margin-top: 1rem;
+	font-weight: bold;
+	padding: 0.25rem;
+	/* background-color: var(--modal-text); */
+	color: var(--main-color-accent);
+}
+
+.modal-text-close-button {
+	background-image: radial-gradient(circle, hsla(0, 0%, 85%, 0.95) 40%, hsla(225, 15%, 50%, 0.95));
+	cursor: pointer;
+	align-self: flex-start;
+	border-radius: 50%;
+	width: 25px;
+	height: 25px;
+	margin-top: 1rem;
+}
+
+.modal-text-content {
+	display: flex;
+	flex-direction: column;
+	align-items: flex-start;
+	text-align: left;
+	flex-grow: 1;
+	overflow: auto;
+	padding: 1rem 2rem;
+	text-align: justify;
+	line-height: 1.4;
+}
+
+.modal-text-content p {
+	padding: 0.25rem;
+	margin-bottom: 1rem;
+}
+
+.modal-text-content p:nth-child(1) {
+	font-size: 1.1rem;
+}
+
+.modal-text-content p:nth-child(2),
+.modal-text-content p:nth-child(4) {
+	background-color: var(--color-header-accent);
+	color: white;
+}
+
+.modal-text-content ul {
+	list-style: none;
+	margin: 0;
+	padding: 0;
+	padding-bottom: 1rem;
+	margin-left: 2rem;
+}
+.modal-text-content ul li {
+	display: flex;
+	align-items: center;
+}
+
+.modal-text-content ul li::before {
+	content: ''; /* Add content: \2022 is the CSS Code/unicode for a bullet */
+	background-color: var(--color-header-accent); /* Change the color */
+	font-weight: bold; /* If you want it to be bold */
+	display: inline-block; /* Needed to add space between the bullet and the text */
+	width: 0.4em; /* Also needed for space (tweak if needed) */
+	height: 0.4em;
+	margin-right: 0.75em; /* Also needed for space (tweak if needed) */
+}
+
+.modal-text-content a {
+	text-decoration: none;
+	color: inherit;
+	border-bottom: 2px solid var(--color-header-accent);
+	padding-top: 3px;
+	line-height: normal;
+}
+
+.modal-img img {
+	display: block;
+	width: 150px;
+	justify-self: flex-end;
+}
+
+.modal-text-footer {
+	display: flex;
+	align-items: center;
+	justify-content: flex-end;
+	padding: 0.5rem;
+	border-top: 0.1rem solid hsl(0, 0%, 30%);
+}
+
+/* .modal-text-footer .modal-text-btn {
+	margin-right: 0.5rem;
+}
+
+.modal-text-footer .modal-text-btn:last-child {
+	margin-right: initial;
+} */
+
+.modal-text-btn {
+	padding: 0.5em 2em;
+	font-size: inherit;
+	border: none;
+	color: white;
+	cursor: pointer;
+	text-align: center;
+}
+
+.modal-text-btn.modal-text-btn-primary {
+	background-color: var(--color-header-accent);
+}
+
+.modal-text-btn.modal-text-btn-primary:hover,
+.modal-text-btn.modal-text-btn-primary:focus {
+	background-color: var(--main-color-accent);
+	outline: none;
+}
+/*
+.modal-text-btn.modal-text-btn-danger {
+	background-color: hsl(0, 100%, 60%);
+}
+
+.modal-text-btn.modal-text-btn-danger:hover,
+.modal-text-btn.modal-text-btn-danger:focus {
+	background-color: hsl(0, 100%, 40%);
+	outline: none;
+} */
+
+.insert-modal {
+	display: none;
+}
+
+strong {
+	font-weight: bold;
+	font-style: italic;
+}
+
+/* Styling the footer */
+footer {
+	padding: 1.5rem;
+}
+
+.footer {
+	width: 100%;
+	min-height: 30vh;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: space-around;
+	background-color: var(--modal-text);
+	font-size: 1rem;
+}
+
+.footer > div {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	width: 100%;
+}
+
+.footer .iframe {
+	position: relative;
+	overflow: hidden;
+	width: 100%;
+	max-width: 1200px;
+	padding-top: 56.25%;
+}
+
+.iframe iframe {
+	position: absolute;
+	top: 0;
+	left: 0;
+	bottom: 0;
+	right: 0;
+	width: 100%;
+	height: 100%;
+	border: none;
+	outline: none;
+}
+
+.footer div p {
+	font-size: 0.75rem;
+}
+
+.footer p,
+.footer a {
+	color: var(--color-header);
+}
+
+.footer .header-address-text {
+	padding: 0.25rem;
+	padding-bottom: 0;
+}
+
+.footer .header-phone-input {
+	padding-top: 0;
+}
+
+.footer .header-phone-input input {
+	background-color: var(--color-header);
+	transition: all 250ms ease-in-out;
+	margin: 0.5rem 0 1rem 0;
+	color: var(--modal-text);
+	font-size: inherit;
+}
+
+.footer .header-phone-input input:hover {
+	opacity: 0.95;
+}
+
+.footer img {
+	background-color: var(--color-header);
+	width: 150px;
+	padding: 0.5rem;
+	padding-right: 0.6rem;
+}
+
+.footer .header-phone:last-child span:nth-of-type(2) {
+	display: none;
+}
+
+.footer .footer-author a,
+.footer .footer-author p {
+	font-weight: bold;
+	width: 100%;
+	font-size: 1rem;
+	padding: 0.5rem 0 1rem 0;
+}
+
+@media (min-width: 800px) {
+	footer {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+	}
+
+	.footer {
+		flex-direction: row;
+		justify-content: center;
+		align-items: center;
+	}
+
+	.footer > div:first-child {
+		width: 45%;
+		justify-self: flex-start;
+	}
+
+	.footer > div:last-child {
+		margin-right: auto;
+	}
+
+	.footer .header-flex {
+		flex-direction: column;
+	}
+
+	.footer div p {
+		font-size: 1rem;
+	}
+
+	.footer .footer-author p {
+		width: 20ch;
+		text-align: center;
+		font-size: 1.1rem;
+	}
+
+	.footer .header-address-text span {
+		display: none;
+	}
+
+	.footer .header-phone-flex:nth-of-type(2) {
+		padding: 0.25rem 0;
+	}
+
+	.iframe iframe {
+		height: 400px;
+		margin: auto 0;
+	}
+
+	.footer .iframe {
+		padding-top: 0;
+		overflow: initial;
+	}
+}
+
+@media (min-width: 1000px) {
+	.footer .footer-author p {
+		width: auto;
+	}
+}
+
+.terms-text a {
+	text-decoration: none;
+	cursor: pointer;
+	font-weight: bold;
+	color: var(--color-header);
+	padding-left: 0.15rem;
+}
+
+.terms-text a:hover {
+	text-decoration: underline;
+}
+
+.terms-link-error {
+	color: hsl(350, 100%, 40%) !important;
+}
+
+.modal-leave {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	position: fixed;
+	z-index: 3;
+	height: 100%;
+	width: 100vw;
+	background-color: hsl(225, 15%, 50%, 0.95);
+	color: var(--color-header);
+	padding: 0.5rem;
+	opacity: 0;
+	visibility: hidden;
+	transition: all 500ms ease-in-out;
+}
+
+.modal-leave-active {
+	opacity: 1;
+	visibility: visible;
+	z-index: 3;
+}
+
+.modal-leave-elements {
+	background-color: var(--color-header-text);
+	min-width: 250px;
+	width: 95%;
+	max-width: 450px;
+	min-height: 250px;
+	height: 30%;
+	max-height: 450px;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	visibility: hidden;
+	opacity: 0;
+	transition: all 500ms ease-in-out;
+	border: 0.15rem solid var(--color-header);
+}
+
+.modal-leave-elements-active {
+	visibility: visible;
+	opacity: 1;
+}
+
+.modal-leave-title {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.modal-leave-title img {
+	width: 30px;
+	margin-right: 0.5rem;
+	background-color: hsl(350, 100%, 40%, 0.1);
+	border-radius: 50%;
+	/* animation: leave 5s ease-in-out infinite; */
+}
+
+@keyframes leave {
+	30% {
+		/* transform: translateX(-0.75rem); */
+		opacity: 0.1;
+		background-color: hsl(350, 100%, 40%, 0.5);
+	}
+
+	60% {
+		opacity: 1;
+	}
+
+	80% {
+		transform: translateX(0);
+		opacity: 0.75;
+		background-color: hsl(350, 100%, 40%, 0.75);
+	}
+
+	100% {
+		opacity: 1;
+		background-color: hsl(350, 100%, 40%, 0.25);
+	}
+}
+
+.modal-leave-title p {
+	color: hsl(350, 100%, 40%);
+	font-size: 1.1rem;
+	font-weight: bold;
+}
+
+.modal-leave p {
+	padding: 1.5rem 0;
+	font-size: 1.5rem;
+}
+
+.modal-leave-buttons {
+	padding: 3rem 0 1rem 0;
+	display: flex;
+	justify-content: space-between;
+	gap: 2rem;
+}
+
+.modal-leave-buttons button {
+	cursor: pointer;
+	padding: 0.35rem 1rem;
+	outline: none;
+	background-color: var(--color-header);
+	color: var(--color-header-text);
+	border: 0;
+	font-size: inherit;
+	transition: all 250ms ease-in-out;
+	width: 100px;
+}
+
+.modal-leave-buttons .modal-button-cancel {
+	background-color: hsla(350, 100%, 40%);
+}
+
+.modal-leave-buttons button:focus,
+.modal-leave-buttons button:hover {
+	opacity: 0.9;
+}
+
+form #time-email {
+	display: none;
+	font-size: 1.5;
+}
+/* 
+noscript {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	padding: 1;
+	width: 100%;
+	margin: 0 auto;
+	background-image: linear-gradient(to top, hsla(225, 15%, 30%, 0.9), hsl(0, 0%, 90%));
+	min-height: 25vh;
+	z-index: 5;
+	position: fixed;
+	bottom: 0;
+}
+
+noscript h1 {
+	margin: 2rem 1rem;
+}
+
+noscript p,
+noscript span {
+	margin: 1rem;
+	font-size: 1.25rem;
+}
+
+noscript span {
+	font-weight: bold;
+	margin-bottom: 3rem;
+} */
