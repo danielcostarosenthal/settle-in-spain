@@ -751,6 +751,7 @@ p.fly-in-from-left {
 	margin: 2rem 0 0 0;
 }
 
+.section-legal-services h3:first-child,
 .section h2:first-child {
 	font-size: 2rem;
 	font-weight: bold;
@@ -1234,6 +1235,7 @@ img.fade-in-home-btn {
 /* Media queries */
 @media (min-width: 450px) {
 	/* Styling the sections' headings */
+	.section-legal-services h3:first-child,
 	.section h2:first-child {
 		font-size: 2.5rem;
 	}
@@ -1282,6 +1284,7 @@ img.fade-in-home-btn {
 		align-items: initial;
 	}
 
+	.section-legal-services h3:first-child,
 	.section h2:first-child,
 	.section-accent h2:first-child {
 		font-size: 3.5rem;
