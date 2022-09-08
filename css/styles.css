@@ -22,7 +22,7 @@
 	--main-color-accent: hsla(225, 15%, 50%, 0.95);
 	--modal-background: hsl(225, 35%, 10%, 0.95);
 	--modal-text: hsl(45, 55%, 53%);
-	--border-radius: 0;
+	--border-radius: 5px;
 	--header-height: 2rem;
 }
 
@@ -585,6 +585,15 @@ img {
 	object-position: center;
 }
 
+.section-accent-flex > div {
+	border-radius: var(--border-radius);
+}
+
+.section-accent-flex > div > div > img{
+	border-bottom-left-radius: 0;
+	border-bottom-right-radius: 0;
+}
+
 img:hover {
 	cursor: pointer;
 }
@@ -787,7 +796,7 @@ p.fly-in-from-left {
 
 .section-content img:hover,
 .section-accent-content img:hover {
-	transform: translateY(-0.25rem);
+	transform: translateY(-1rem);
 }
 
 .section-accent-content {
